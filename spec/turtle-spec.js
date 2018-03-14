@@ -20,4 +20,11 @@ describe('Turtle', function() {
     expect(anotherTurtle.health).toEqual(4);
   });
 
+  it('will increase power by 1 if the score is greater than or equal to 100', function() {
+    this.score = 101
+    this.power = 3
+    reusableTurtle.powerUp(101);
+    console.log(this.power);
+    expect(reusableTurtle.powerUp).toEqual(4);
+  });
 });
