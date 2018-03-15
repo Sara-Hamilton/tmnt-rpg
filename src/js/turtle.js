@@ -16,6 +16,18 @@ export class Turtle {
     this.health += 1;
   }
 
+  getDumbbell() {
+    this.power += 1;
+  }
+
+  getShoes() {
+    this.speed += 1;
+  }
+
+  getEnergyDrink() {
+    this.recovery += 1;
+  }
+
   attackTurtle(turtle) {
     this.health -= 1;
     turtle.health -=2;

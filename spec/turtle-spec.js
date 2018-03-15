@@ -14,6 +14,21 @@ describe('Turtle', function() {
     expect(reusableTurtle.health).toEqual(7);
   });
 
+  it('will increase the power by 1', function() {
+    reusableTurtle.getDumbbell();
+    expect(reusableTurtle.power).toEqual(5);
+  });
+
+  it('will increase the speed by 1', function() {
+    reusableTurtle.getShoes();
+    expect(reusableTurtle.speed).toEqual(5);
+  });
+
+  it('will increase the recovery by 1', function() {
+    reusableTurtle.getEnergyDrink();
+    expect(reusableTurtle.recovery).toEqual(4);
+  });
+
   it('will decrease the health by 1 for player and 2 for teammate', function() {
     reusableTurtle.attackTurtle(anotherTurtle);
     expect(reusableTurtle.health).toEqual(5);
@@ -50,4 +65,5 @@ describe('Turtle', function() {
     expect(reusableTurtle.speed).toEqual(3.5);
     expect(reusableTurtle.recovery).toEqual(2.5);
   });
+
 });
