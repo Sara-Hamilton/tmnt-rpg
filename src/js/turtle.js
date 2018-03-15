@@ -50,6 +50,17 @@ export class Turtle {
     }
   }
 
+  attackBoss() {
+    this.score += 15;
+    this.attackCount += 1;
+    if (this.attackCount === 2) {
+      this.power -= 0.5;
+      this.speed -= 0.5;
+      this.recovery -= 0.5;
+      this.attackCount = 0;
+    }
+  }
+
   attackedByEnemy() {
     if (this.recovery >= 10) {
       this.health -= 0.5;

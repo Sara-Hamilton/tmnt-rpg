@@ -41,13 +41,13 @@ describe('Turtle', function() {
     expect(reusableTurtle.power).toEqual(5);
   });
 
-  it('will increase score by 10 points for every hit on an enemy/boss', function() {
+  it('will increase score by 10 points for every hit on an enemy', function() {
     reusableTurtle.score = 20;
     reusableTurtle.attackEnemy();
     expect(reusableTurtle.score).toEqual(30);
   });
 
-  it('will decrease power, speed, and recovery by 0.5 for every third attack on an enemy/boss', function() {
+  it('will decrease power, speed, and recovery by 0.5 for every third attack on an enemy', function() {
     reusableTurtle.attackEnemy();
     expect(reusableTurtle.power).toEqual(4);
     expect(reusableTurtle.speed).toEqual(4);
@@ -65,6 +65,27 @@ describe('Turtle', function() {
     expect(reusableTurtle.speed).toEqual(3.5);
     expect(reusableTurtle.recovery).toEqual(2.5);
   });
+
+  it('will increase score by 15 points for every hit on a boss', function() {
+    reusableTurtle.score = 20;
+    reusableTurtle.attackBoss();
+    expect(reusableTurtle.score).toEqual(35);
+  });
+
+  it('will decrease power, speed, and recovery by 1 for every second attack on a boss', function() {
+    reusableTurtle.attackBoss();
+    expect(reusableTurtle.power).toEqual(4);
+    expect(reusableTurtle.speed).toEqual(4);
+    expect(reusableTurtle.recovery).toEqual(3);
+    reusableTurtle.attackBoss();
+    expect(reusableTurtle.power).toEqual(3.5);
+    expect(reusableTurtle.speed).toEqual(3.5);
+    expect(reusableTurtle.recovery).toEqual(2.5);
+    reusableTurtle.attackBoss();
+    expect(reusableTurtle.power).toEqual(3.5);
+    expect(reusableTurtle.speed).toEqual(3.5);
+    expect(reusableTurtle.recovery).toEqual(2.5);
+  })
 
   it('will decrease health by 0.5 if recovery >= 10', function() {
     reusableTurtle.recovery = 10;
