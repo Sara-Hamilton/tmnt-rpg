@@ -7,7 +7,7 @@ describe('Boss', function() {
     reusableBoss = new Boss ("Rocksteady", 8);
   });
 
-  it('will diminish boss health by 1 false if lives != 0', function() {
+  it('will diminish boss health by 1', function() {
     reusableBoss.attackedByTurtle(1);
     expect(reusableBoss.health).toEqual(7);
   });
