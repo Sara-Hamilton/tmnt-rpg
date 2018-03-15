@@ -49,4 +49,12 @@ export class Turtle {
       this.attackCount = 0;
     }
   }
+
+  attackedByEnemy() {
+    if (this.recovery >= 10) {
+      this.health -= 0.5;
+    } else {
+      this.health -= 1;
+    }
+  }
 }
