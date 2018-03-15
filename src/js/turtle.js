@@ -15,15 +15,21 @@ export class Turtle {
     this.health += 1;
   }
 
-  attack(turtle) {
+  attackTurtle(turtle) {
     this.health -= 1;
     turtle.health -=2;
   }
 
   powerUp() {
     if (this.score >= 100) {
-      this.power += 1
+      this.power += 1;
     }
-    return this.power;
+  }
+
+  attackEnemy() {
+    this.score += 10;
+    this.power -= 0.5;
+    this.speed -= 0.5;
+    this.recovery -= 0.5;
   }
 }

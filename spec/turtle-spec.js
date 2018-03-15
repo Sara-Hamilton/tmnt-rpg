@@ -5,8 +5,8 @@ describe('Turtle', function() {
   let anotherTurtle;
 
   beforeEach(function() {
-    reusableTurtle = new Turtle("Raphael", 4, 4, 3);
-    anotherTurtle = new Turtle("Donatello", 4, 4, 3);
+    reusableTurtle = new Turtle("Raphael", "sai", 4, 4, 3);
+    anotherTurtle = new Turtle("Donatello", "bo", 4, 4, 3);
   });
 
   it('will increase the health by 1', function() {
@@ -15,16 +15,27 @@ describe('Turtle', function() {
   });
 
   it('will decrease the health by 1 for player and 2 for teammate', function() {
-    reusableTurtle.attack(anotherTurtle);
+    reusableTurtle.attackTurtle(anotherTurtle);
     expect(reusableTurtle.health).toEqual(5);
     expect(anotherTurtle.health).toEqual(4);
   });
 
   it('will increase power by 1 if the score is greater than or equal to 100', function() {
-    this.score = 101
-    this.power = 3
-    reusableTurtle.powerUp(101);
-    console.log(this.power);
-    expect(reusableTurtle.powerUp).toEqual(4);
+    reusableTurtle.score = 101;
+    reusableTurtle.powerUp();
+    expect(reusableTurtle.power).toEqual(5);
+  });
+
+  it('will increase score by 10 points for every hit on an enemy/boss', function() {
+    reusableTurtle.score = 20;
+    reusableTurtle.attackEnemy();
+    expect(reusableTurtle.score).toEqual(30);
+  });
+
+  it('will decrease power, speed, and recovery by 0.5 for every attack on an enemy/boss', function() {
+    reusableTurtle.attackEnemy();
+    expect(reusableTurtle.power).toEqual(3.5);
+    expect(reusableTurtle.speed).toEqual(3.5);
+    expect(reusableTurtle.recovery).toEqual(2.5);
   });
 });

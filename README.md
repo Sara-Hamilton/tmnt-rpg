@@ -69,7 +69,7 @@ npm run start
 npm run test
 ```
 
-## Support and contact details
+## Support and Contact Details
 
 _To suggest changes, submit a pull request in the GitHub repository._
 
