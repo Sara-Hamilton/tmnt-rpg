@@ -1,9 +1,11 @@
 export class Game {
-  constructor (players, scores, lives, level = 1) {
+  constructor (players, scores, lives, enemies, bosses) {
     this.players = players;
     this.scores = scores;
     this.lives = lives;
-    this.level = level;
+    this.enemies = enemies;
+    this.bosses = bosses;
+    this.level = 1;
   }
 
   gameOverCheck(playerNum) {
@@ -14,4 +16,17 @@ export class Game {
       return false;
     }
   }
+
+  gameWinCheck(playerNum) {
+    if ((this.level === 3) && (this.bosses[playerNum - 1] === 1)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // level up
+
+  // enemy defeat count
+  // time to fight boss
 }
