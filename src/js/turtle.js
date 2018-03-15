@@ -1,6 +1,8 @@
 export class Turtle {
-  constructor(name, power, speed, recovery) {
+  constructor(name, weapon, power, speed, recovery) {
     this.name = name;
+    this.weapon = weapon;
+    this.lives = 3;
     this.score = 0;
     this.health = 6;
     this.power = power;
@@ -23,5 +25,5 @@ export class Turtle {
       this.power += 1
     }
     return this.power;
-  }  
+  }
 }
