@@ -4,7 +4,7 @@ describe('Game', function() {
   let reusableGame;
 
   beforeEach(function() {
-    reusableGame = new Game([1,2,3], [0,0,0], [3,3,3]);
+    reusableGame = new Game([1,2,3], [0,0,0], [3,3,3], [0,0,0], [0,0,0]);
   });
 
   it('will return false if lives != 0', function() {
@@ -16,6 +16,41 @@ describe('Game', function() {
     reusableGame.lives[0] = 0;
     let result = reusableGame.gameOverCheck(1);
     expect(result).toEqual(true);
+  });
+
+  it('will return true if level === 3 and bosses === 1', function() {
+    reusableGame.level = 3;
+    reusableGame.bosses[0] = 1;
+    let result = reusableGame.gameWinCheck(1);
+    expect(result).toEqual(true);
+  });
+
+  it('will increase level by 1 if level === 1 or 2 and bosses === 1', function() {
+    reusableGame.bosses[0] = 1;
+    reusableGame.levelUp(1);
+    expect(reusableGame.level).toEqual(2);
+  });
+
+  it('will reset enemies and bosses to 0 for all players', function() {
+    reusableGame.bosses[0] = 1;
+    reusableGame.bosses[1] = 1;
+    reusableGame.bosses[2] = 1;
+    reusableGame.enemies[0] = 1;
+    reusableGame.enemies[1] = 1;
+    reusableGame.enemies[2] = 1;
+    expect(reusableGame.enemies[0]).toEqual(1);
+    expect(reusableGame.enemies[1]).toEqual(1);
+    expect(reusableGame.enemies[2]).toEqual(1);
+    expect(reusableGame.bosses[0]).toEqual(1);
+    expect(reusableGame.bosses[1]).toEqual(1);
+    expect(reusableGame.bosses[2]).toEqual(1);
+    reusableGame.levelUp(1);
+    expect(reusableGame.enemies[0]).toEqual(0);
+    expect(reusableGame.enemies[1]).toEqual(0);
+    expect(reusableGame.enemies[2]).toEqual(0);
+    expect(reusableGame.bosses[0]).toEqual(0);
+    expect(reusableGame.bosses[1]).toEqual(0);
+    expect(reusableGame.bosses[2]).toEqual(0);
   });
 
 });

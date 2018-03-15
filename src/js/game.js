@@ -25,7 +25,15 @@ export class Game {
     }
   }
 
-  // level up
+  levelUp(playerNum) {
+    if (((this.level === 1) || (this.level === 2)) && (this.bosses[playerNum - 1] === 1)) {
+      this.level += 1;
+      for (let i = 0; i < this.players.length; i++) {
+        this.enemies[i] = 0;
+        this.bosses[i] = 0;
+      }
+    }
+  }
 
   // enemy defeat count
   // time to fight boss
