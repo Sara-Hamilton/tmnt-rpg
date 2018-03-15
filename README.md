@@ -48,10 +48,15 @@ _This is an Epicodus practice project for week 1 of the JavaScript course. Its p
 git clone https://github.com/Sara-Hamilton/tmnt-rpg.git
 ```
 
-* _Install npm_
+* _Move into the directory_
 
 ```
 cd tmnt-rpg
+```
+
+* _Install npm_
+
+```
 npm install
 ```
 * _Run the program_

@@ -53,4 +53,35 @@ describe('Game', function() {
     expect(reusableGame.bosses[2]).toEqual(0);
   });
 
+  it('will decrease life by 1', function() {
+    reusableGame.lives[0] = 3;
+    reusableGame.decreaseLife(1);
+    expect(reusableGame.lives[0]).toEqual(2);
+  });
+
+  it('will increase enemies count by 1', function() {
+    reusableGame.defeatEnemy(1);
+    expect(reusableGame.enemies[0]).toEqual(1);
+  });
+
+  it('will return true if level === 1 and enemies === 10', function() {
+    reusableGame.enemies[0] = 10;
+    let result = reusableGame.fightBossCheck(1);
+    expect(result).toEqual(true);
+  });
+
+  it('will return true if level === 2 and enemies === 15', function() {
+    reusableGame.level = 2;
+    reusableGame.enemies[0] = 15;
+    let result = reusableGame.fightBossCheck(1);
+    expect(result).toEqual(true);
+  });
+
+  it('will return true if level === 3 and enemies === 20', function() {
+    reusableGame.level = 3;
+    reusableGame.enemies[0] = 20;
+    let result = reusableGame.fightBossCheck(1);
+    expect(result).toEqual(true);
+  });
+
 });

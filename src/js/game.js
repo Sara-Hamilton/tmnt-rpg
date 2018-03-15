@@ -35,6 +35,20 @@ export class Game {
     }
   }
 
-  // enemy defeat count
-  // time to fight boss
+  decreaseLife(playerNum) {
+    this.lives[playerNum -1] -=1;
+  }
+
+  defeatEnemy(playerNum) {
+    this.enemies[playerNum -1] += 1;
+  }
+
+  fightBossCheck(playerNum) {
+    if (this.enemies[playerNum -1] >= this.level * 5 + 5) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
 }
