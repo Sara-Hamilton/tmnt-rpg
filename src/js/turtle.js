@@ -8,6 +8,7 @@ export class Turtle {
     this.power = power;
     this.speed = speed;
     this.recovery = recovery;
+    this.attackCount = 0;
   }
 
 
@@ -28,8 +29,12 @@ export class Turtle {
 
   attackEnemy() {
     this.score += 10;
-    this.power -= 0.5;
-    this.speed -= 0.5;
-    this.recovery -= 0.5;
+    this.attackCount += 1;
+    if (this.attackCount === 3) {
+      this.power -= 0.5;
+      this.speed -= 0.5;
+      this.recovery -= 0.5;
+      this.attackCount = 0;
+    }
   }
 }
