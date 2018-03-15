@@ -57,4 +57,12 @@ export class Turtle {
       this.health -= 1;
     }
   }
+
+  attackedByBoss() {
+    if (this.recovery >= 15) {
+      this.health -= 1.5;
+    } else {
+      this.health -= 2;
+    }
+  }
 }

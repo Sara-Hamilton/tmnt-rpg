@@ -77,4 +77,15 @@ describe('Turtle', function() {
     expect(reusableTurtle.health).toEqual(5);
   });
 
+  it('will decrease health by 1.5 if recovery >= 15', function() {
+    reusableTurtle.recovery = 15;
+    reusableTurtle.attackedByBoss();
+    expect(reusableTurtle.health).toEqual(4.5);
+  });
+
+  it('will decrease health by 2 if recovery < 15', function() {
+    reusableTurtle.attackedByBoss();
+    expect(reusableTurtle.health).toEqual(4);
+  });
+
 });
